@@ -7,4 +7,5 @@
     - add default value ("results.txt") for flag -f (1.0)  
     - check whether arg for flag -f has extension ".txt", if not, add it (1.0)  
     - fix initial provided script so that it passes bash checker scan (2.0)  
--  lab_5 - ?
+-  lab_5 - go there -> https://github.com/Damian0401/SO-lab
+-  lab_6 - 5.5
