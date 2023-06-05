@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  db:
+    image: mongo:latest
+    hostname: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=example_password
+      - MONGO_INITDB_DATABASE=users
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./db-data:/data/db
+  backend:
+    build: /backend
+    environment:
+        - MONGO_INITDB_ROOT_PASSWORD=example_password
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  frontend:
+    build: /frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
